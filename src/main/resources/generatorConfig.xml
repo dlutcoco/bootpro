@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="E:\apache-maven-3.0.5\Java\maven-repository\mysql\mysql-connector-java\5.1.28\mysql-connector-java-5.1.28.jar"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.60.87:3306/test?generateSimpleParameterMetadata=true"
+                        userId="root" password="1234">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- generate Model -->
+        <javaModelGenerator targetPackage="com.netposa.datapro.pojo"
+                            targetProject="bootpro\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- generate xml -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="bootpro\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- generate Mapper -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.netposa.datapro.mapper"
+                             targetProject="bootpro\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="" tableName="content" domainObjectName="Content">
+            <property name="useActualColumNames" value="true"/>
+            <property name="selectByPrimaryKey" value="true"/>
+        </table>
+        <table schema="" tableName="user" domainObjectName="User">
+            <property name="useActualColumNames" value="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
