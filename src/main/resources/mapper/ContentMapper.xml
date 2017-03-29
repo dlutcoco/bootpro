@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.netposa.datapro.mapper.ContentMapper">
-  <resultMap id="BaseResultMap" type="com.netposa.datapro.entites.Content">
+<mapper namespace="com.netposa.bootpro.mapper.ContentMapper">
+  <resultMap id="BaseResultMap" type="com.netposa.bootpro.pojo.Content">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="content" jdbcType="VARCHAR" property="content" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List">
     id, content
   </sql>
-  <select id="selectByExample" parameterType="com.netposa.datapro.entites.ContentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.netposa.bootpro.pojo.ContentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -90,17 +90,17 @@
     delete from content
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.netposa.datapro.entites.ContentExample">
+  <delete id="deleteByExample" parameterType="com.netposa.bootpro.pojo.ContentExample">
     delete from content
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.netposa.datapro.entites.Content">
+  <insert id="insert" parameterType="com.netposa.bootpro.pojo.Content">
     insert into content (id, content)
     values (#{id,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.netposa.datapro.entites.Content">
+  <insert id="insertSelective" parameterType="com.netposa.bootpro.pojo.Content">
     insert into content
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -119,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.netposa.datapro.entites.ContentExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.netposa.bootpro.pojo.ContentExample" resultType="java.lang.Integer">
     select count(*) from content
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -147,7 +147,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.netposa.datapro.entites.Content">
+  <update id="updateByPrimaryKeySelective" parameterType="com.netposa.bootpro.pojo.Content">
     update content
     <set>
       <if test="content != null">
@@ -156,7 +156,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.netposa.datapro.entites.Content">
+  <update id="updateByPrimaryKey" parameterType="com.netposa.bootpro.pojo.Content">
     update content
     set content = #{content,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
