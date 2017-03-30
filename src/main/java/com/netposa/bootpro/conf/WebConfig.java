@@ -13,7 +13,7 @@ public class WebConfig {
     public ServletRegistrationBean statViewServlet() {
         StatViewServlet statViewServlet = new StatViewServlet();
         ServletRegistrationBean servlet = new ServletRegistrationBean(statViewServlet);
-        servlet.addInitParameter("resetEnable", "false");
+        servlet.addInitParameter("resetEnable", "true");
 //        servlet.addInitParameter("loginUsername", "druid");
 //        servlet.addInitParameter("loginPassword", "druid");
         servlet.addUrlMappings("/druid/*");
