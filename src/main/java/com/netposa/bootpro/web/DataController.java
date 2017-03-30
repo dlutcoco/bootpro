@@ -33,16 +33,4 @@ public class DataController {
     public String getDataBaseRandomStr() {
         return dataService.queryRandom();
     }
-    
-    @GetMapping("/thread")
-    public String threadTest() {
-    	LOG.info("thread:" + Thread.currentThread().getName());
-    	
-    	try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-        return dataService.queryRandom();
-    }
 }

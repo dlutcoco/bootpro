@@ -7,12 +7,16 @@ public class BaseResponse {
 
     private int code = 200;
     
-    private JSONObject data = new JSONObject();
+    private JSONObject data;
 
     public BaseResponse() {
-        super();    
+        this(200);
     }
 
+    public BaseResponse(int code) {
+        this(code, new JSONObject());
+    }
+    
     public BaseResponse(int code, JSONObject data) {
         super();
         this.code = code;
