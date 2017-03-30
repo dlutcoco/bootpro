@@ -8,7 +8,7 @@
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <commentGenerator>
-            <property name="suppressAllComments" value="true"/>
+            <property name="suppressAllComments" value="false"/>
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -21,7 +21,7 @@
         </javaTypeResolver>
 
         <!-- generate Model -->
-        <javaModelGenerator targetPackage="com.netposa.datapro.pojo"
+        <javaModelGenerator targetPackage="com.netposa.bootpro.pojo"
                             targetProject="bootpro\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
@@ -35,7 +35,7 @@
 
         <!-- generate Mapper -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.netposa.datapro.mapper"
+                             targetPackage="com.netposa.bootpro.mapper"
                              targetProject="bootpro\src\main\java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>

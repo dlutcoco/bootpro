@@ -12,7 +12,10 @@ import com.netposa.bootpro.conf.AppProperties;
 import com.netposa.bootpro.conf.DruidProperties;
 import com.netposa.bootpro.service.DataService;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @SpringBootApplication
+@EnableSwagger2
 @EnableConfigurationProperties(value = {AppProperties.class, DruidProperties.class})
 @MapperScan(basePackages = {"com.netposa"})
 public class BootproApplication {
