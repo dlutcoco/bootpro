@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.netposa.bootpro.entites.BaseResponse;
+import com.netposa.bootpro.exception.ValidatorException;
 import com.netposa.bootpro.vo.UserVo;
 
 @RestController
@@ -23,6 +24,10 @@ public class UserController {
             System.out.println(error.getCode() + "-" + error.getObjectName() + "-" + error.getDefaultMessage());
         }
         
+        if (bindingResult.hasErrors()) {
+            throw new ValidatorException(bindingResult);
+        }
+
         return new BaseResponse();
     }
 }
