@@ -4,6 +4,7 @@ package com.netposa.bootpro.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.netposa.bootpro.conf.AppProperties;
@@ -58,4 +59,10 @@ public class DataService {
         Content content = contentMapper.selectByPrimaryKey(key);
         return content == null ? null : content.getContent();
     }
+
+    @Cacheable(value = "guavademo")
+	public String query(int id) {
+		Content content = contentMapper.selectByPrimaryKey(id);
+		return content == null ? null : content.getContent();
+	}
 }
